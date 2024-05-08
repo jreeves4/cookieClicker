@@ -23,13 +23,22 @@
         android:id="@+id/cookie"
         android:layout_centerInParent="true"/>
 
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/cookieAlternative"
+        android:layout_above="@id/statsButton"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="30dp"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SHOP"
         android:id="@+id/shopButton"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true" />
+        android:layout_alignParentLeft="true"
+        android:textSize="30sp"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -37,7 +46,8 @@
         android:text="STATS"
         android:id="@+id/statsButton"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"/>
+        android:layout_alignParentRight="true"
+        android:textSize="30sp"/>
 
 </RelativeLayout>
 
