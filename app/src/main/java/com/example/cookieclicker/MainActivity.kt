@@ -12,10 +12,13 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.view.animation.AnimationUtils
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.ProgressBar
+import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
@@ -31,8 +34,12 @@ class MainActivity : AppCompatActivity() {
         val statsButton : Button = findViewById(R.id.statsButton)
         val shopButton : Button = findViewById(R.id.shopButton)
         val imageView : ImageView = findViewById(R.id.cookie)
-        val altImageView : ImageView = findViewById(R.id.cookieAlternative)
         val scoreView : TextView = findViewById(R.id.score)
+        val jackpotText : TextView = findViewById(R.id.jackpot)
+        val progressBar : ProgressBar = findViewById(R.id.progressBar)
+        val radioGroup = findViewById<RadioGroup>(R.id.radioGroup)
+        var progress : Int = 0
+        var jackpot : Boolean = false
 
         var sp : SharedPreferences = this.getSharedPreferences("cookieClicker", Context.MODE_PRIVATE)
         val cookies = sp.getInt("cookies", 0)
@@ -64,10 +71,14 @@ class MainActivity : AppCompatActivity() {
         var imgPref = sp.getInt("imgPref", 0)
         if (imgPref == 0) {
             imageView.setImageResource(R.drawable.umd_athletics_logo)
-            altImageView.setImageResource(R.drawable.smiley_face)
-        } else {
+        } else if (imgPref == 1) {
             imageView.setImageResource(R.drawable.smiley_face)
-            altImageView.setImageResource(R.drawable.umd_athletics_logo)
+        } else if (imgPref == 2) {
+            imageView.setImageResource(R.drawable.herve_img)
+        } else if (imgPref == 3) {
+            imageView.setImageResource(R.drawable.coin_img)
+        } else if (imgPref == 4) {
+            imageView.setImageResource(R.drawable.nap_img)
         }
 
         imageView.setOnClickListener{
@@ -75,18 +86,64 @@ class MainActivity : AppCompatActivity() {
             val updatedCookies = game.getCookies()
             scoreView.text = updatedCookies.toString()
             sp.edit().putInt("cookies", updatedCookies).apply()
+
+            // progress bar
+            if (jackpot) {
+                progress = -2
+                jackpotText.setText("JACKPOT!")
+                imageView.clearAnimation()
+                jackpot = false
+            }
+            else {
+                jackpotText.setText("")
+            }
+
+            progress += 2
+            if (progress >= 100) {
+                progress = 100
+                game.jackpot()
+                val shake = AnimationUtils
+                    .loadAnimation(this, R.drawable.shake_animation)
+                imageView.startAnimation(shake)
+                jackpot = true
+            }
+            progressBar.progress = progress
+
         }
 
-        altImageView.setOnClickListener{
-            if (imgPref == 1) {
-                imageView.setImageResource(R.drawable.umd_athletics_logo)
-                altImageView.setImageResource(R.drawable.smiley_face)
-            } else {
-                imageView.setImageResource(R.drawable.smiley_face)
-                altImageView.setImageResource(R.drawable.umd_athletics_logo)
+        radioGroup.setOnCheckedChangeListener { _, checkedId ->
+            // Check which RadioButton is selected
+            when (checkedId) {
+                R.id.rd_umd -> {
+                    imgPref = 0
+                    imageView.setImageResource(R.drawable.umd_athletics_logo)
+                    sp.edit().putInt("imgPref", imgPref).apply()
+                }
+
+                R.id.rd_smiley -> {
+                    imgPref = 1
+                    imageView.setImageResource(R.drawable.smiley_face)
+                    sp.edit().putInt("imgPref", imgPref).apply()
+                }
+
+                R.id.rd_herve -> {
+                    imgPref = 2
+                    imageView.setImageResource(R.drawable.herve_img)
+                    sp.edit().putInt("imgPref", imgPref).apply()
+                }
+
+                R.id.rd_coin -> {
+                    imgPref = 3
+                    imageView.setImageResource(R.drawable.coin_img)
+                    sp.edit().putInt("imgPref", imgPref).apply()
+                }
+
+                R.id.rd_boot -> {
+                    imgPref = 4
+                    imageView.setImageResource(R.drawable.nap_img)
+                    sp.edit().putInt("imgPref", imgPref).apply()
+                }
             }
-            imgPref = imgPref xor 1
-            sp.edit().putInt("imgPref", imgPref).apply()
         }
 
         statsButton.setOnClickListener{
@@ -116,3 +173,4 @@ class MainActivity : AppCompatActivity() {
         adView.loadAd( request )
     }
 }
+

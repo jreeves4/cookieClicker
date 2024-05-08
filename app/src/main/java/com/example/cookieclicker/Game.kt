@@ -1,3 +1,4 @@
+
 package com.example.cookieclicker
 
 class Game(cookies: Int, multiplier: Int) {
@@ -24,5 +25,8 @@ class Game(cookies: Int, multiplier: Int) {
 
     fun setUpgrades(upgrades : Map<UpgradeType, Int>) {
         this.upgrades = upgrades
+    }
+    fun jackpot() {
+        this.cookies += 99 * multiplier
     }
 }
