@@ -3,11 +3,17 @@ package com.example.cookieclicker
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.animation.AnimationUtils
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -40,6 +46,24 @@ class MainActivity : AppCompatActivity() {
         val multiplier = sp.getInt("multiplier", 1)
         //Game(cookieCount)
         game = Game(cookies, multiplier)
+
+        var firebase : FirebaseDatabase = FirebaseDatabase.getInstance()
+        var reference : DatabaseReference = firebase.getReference("upgrades")
+
+        var exampleUpgrades : Map<String, Int> = mapOf(UpgradeType.SECOND_HAND.name to 3,
+            UpgradeType.GRANDMAS_HOUSE.name to 0)
+        reference.setValue( exampleUpgrades )
+
+        reference.get().addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                val data = task.result
+                if (data != null) {
+                    val valueMap = data.value as Map<UpgradeType, Int>
+                    game.setUpgrades(valueMap)
+                    Log.w("MainActivity", game.getUpgrades().toString())
+                }
+            }
+        }
 
         scoreView.text = game.getCookies().toString()
 
