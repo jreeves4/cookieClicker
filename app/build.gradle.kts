@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("com.google.gms.google-services") version "4.4.1" apply true
 }
 
 android {
@@ -43,6 +44,9 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation( "com.google.android.gms:play-services-ads:23.0.0" )
+    implementation( platform( "com.google.firebase:firebase-bom:33.0.0" ) )
+    implementation( "com.google.firebase:firebase-database-ktx" )
+    implementation(libs.firebase.database)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

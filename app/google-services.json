@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "938595537301",
+    "project_id": "cookieclicker-53bdc",
+    "storage_bucket": "cookieclicker-53bdc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:938595537301:android:0345871894726c828d269c",
+        "android_client_info": {
+          "package_name": "com.example.cookieclicker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCV2AMGr0NMFPwGBSoHgeYdoNp7dKJdcRc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

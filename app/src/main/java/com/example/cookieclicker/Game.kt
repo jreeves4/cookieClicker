@@ -3,7 +3,13 @@ package com.example.cookieclicker
 class Game(cookies: Int, multiplier: Int) {
     private var cookies = cookies
     private var multiplier = multiplier
-    private lateinit var upgrades : Map<UpgradeType, Int>
+    private var upgrades : Map<UpgradeType, Int>
+
+    init {
+        val initialUpgrades = UpgradeType.entries.associateWith { 0 }
+        upgrades = initialUpgrades
+    }
+
     fun getCookies() : Int {
         return cookies
     }
