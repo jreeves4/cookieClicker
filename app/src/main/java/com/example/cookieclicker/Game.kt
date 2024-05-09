@@ -29,4 +29,22 @@ class Game(cookies: Int, multiplier: Int) {
     fun jackpot() {
         this.cookies += 99 * multiplier
     }
+
+    fun getMultiplier() : Int {
+        return multiplier
+    }
+
+    fun buyTwoX() {
+        if (cookies >= 100) {
+            this.cookies -= 100
+            this.multiplier *= 2
+        }
+    }
+
+    fun buyThreeX() {
+        if (cookies >= 275) {
+            this.cookies -= 275
+            this.multiplier *= 3
+        }
+    }
 }

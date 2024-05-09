@@ -24,7 +24,6 @@ import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var game : Game
     private lateinit var adView : AdView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -171,6 +170,10 @@ class MainActivity : AppCompatActivity() {
         adLayout.addView( adView )
         // load the ad
         adView.loadAd( request )
+    }
+
+    companion object {
+        lateinit var game : Game
     }
 }
 

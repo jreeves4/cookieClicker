@@ -6,13 +6,48 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="hello this is the stats"/>
+        android:text="Stats:"
+        android:textSize="40sp"
+        android:id="@+id/statsHeader"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You have this many cookies: "
+        android:textSize="30sp"
+        android:layout_below="@id/statsHeader"
+        android:layout_marginTop="60dp"
+        android:id="@+id/cookieStatsA" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:layout_below="@id/cookieStatsA"
+        android:id="@+id/cookieStatsB" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your multiplier is currently: "
+        android:textSize="30sp"
+        android:layout_below="@id/cookieStatsB"
+        android:id="@+id/cookieStatsC" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:layout_below="@id/cookieStatsC"
+        android:id="@+id/cookieStatsD" />
+
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/homeButton"
         android:text="HOME"
+        android:textSize="30sp"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_marginTop="16dp"

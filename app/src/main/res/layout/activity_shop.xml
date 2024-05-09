@@ -6,7 +6,43 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello this is the shop"/>
+        android:text="Shop:"
+        android:textSize="40sp"
+        android:id="@+id/shopHeader"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2x per click multiplier"
+        android:textSize="30sp"
+        android:layout_below="@id/shopHeader"
+        android:layout_marginTop="60dp"
+        android:id="@+id/twoX" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="100 cookie"
+        android:layout_below="@id/twoX"
+        android:id="@+id/twoXButton" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3x per click multiplier"
+        android:textSize="30sp"
+        android:layout_below="@id/twoXButton"
+        android:id="@+id/threeX" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="275 cookie"
+        android:layout_below="@id/threeX"
+        android:id="@+id/threeXButton"
+        />
 
     <Button
         android:layout_width="wrap_content"
@@ -15,6 +51,7 @@
         android:text="HOME"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
+        android:textSize="30sp"
         android:layout_marginTop="16dp"
         android:layout_marginRight="16dp" />
 
