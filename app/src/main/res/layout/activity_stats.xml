@@ -6,8 +6,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Stats:"
+        android:text="Stats"
         android:textSize="40sp"
+        android:layout_margin="16dp"
         android:id="@+id/statsHeader"/>
 
     <TextView
@@ -15,6 +16,7 @@
         android:layout_height="wrap_content"
         android:text="You have this many cookies: "
         android:textSize="30sp"
+        android:layout_centerHorizontal="true"
         android:layout_below="@id/statsHeader"
         android:layout_marginTop="60dp"
         android:id="@+id/cookieStatsA" />
@@ -23,12 +25,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="30sp"
+        android:layout_centerHorizontal="true"
         android:layout_below="@id/cookieStatsA"
         android:id="@+id/cookieStatsB" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:text="Your multiplier is currently: "
         android:textSize="30sp"
         android:layout_below="@id/cookieStatsB"
@@ -38,6 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="30sp"
+        android:layout_centerHorizontal="true"
         android:layout_below="@id/cookieStatsC"
         android:id="@+id/cookieStatsD" />
 

@@ -6,32 +6,38 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Shop:"
+        android:text="Shop"
         android:textSize="40sp"
+        android:layout_margin="16dp"
         android:id="@+id/shopHeader"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2x per click multiplier"
+        android:text="2x per click multiplier:"
         android:textSize="30sp"
         android:layout_below="@id/shopHeader"
         android:layout_marginTop="60dp"
+        android:layout_margin="10dp"
+        android:layout_centerHorizontal="true"
         android:id="@+id/twoX" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="30sp"
-        android:text="100 cookie"
+        android:text="100 cookies"
         android:layout_below="@id/twoX"
+        android:layout_centerHorizontal="true"
         android:id="@+id/twoXButton" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="3x per click multiplier"
+        android:text="3x per click multiplier:"
         android:textSize="30sp"
+        android:layout_margin="10dp"
+        android:layout_centerHorizontal="true"
         android:layout_below="@id/twoXButton"
         android:id="@+id/threeX" />
 
@@ -39,7 +45,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="30sp"
-        android:text="275 cookie"
+        android:text="275 cookies"
+        android:layout_centerHorizontal="true"
         android:layout_below="@id/threeX"
         android:id="@+id/threeXButton"
         />
